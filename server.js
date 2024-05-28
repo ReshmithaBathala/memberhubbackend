@@ -9,7 +9,11 @@ const app = express();
 app.use(cors());
 app.use(bodyParser.json());
 
-mongoose.connect("mongodb://localhost:27017/memberhub");
+const host = "localhost";
+const port = 27017;
+const database = "memberhub";
+
+mongoose.connect(`mongodb://${host}:${port}/${database}`);
 
 app.use("/api/members", memberRoutes);
 app.use("/api/auth", authRoutes);
